@@ -9,3 +9,7 @@ Urls:
     https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?(username or email)=<username or email>&challenge=<challenge>
     BODY:
        <solved challege>
+       
+  DELETE (log out):
+    https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?token=<token>
+    
