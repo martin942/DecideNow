@@ -11,7 +11,7 @@ CREATE TABLE user (
 CREATE TABLE password (
   userid varchar(36) NOT NULL,
   password varchar(64) NOT NULL,
-  KEY userid (`userid`),
+  KEY userid (userid),
   CONSTRAINT password_ibfk_1 FOREIGN KEY (userid) REFERENCES user (userid) ON DELETE CASCADE
 );
 
