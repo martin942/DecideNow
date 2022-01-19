@@ -41,5 +41,16 @@ CREATE TABLE usergroup (
   visibility enum('public','private') NOT NULL,
   name varchar(100) NOT NULL,
   PRIMARY KEY (groupid)
-) 
+);
 
+CREATE TABLE follow (
+  fromid varchar(36) NOT NULL,
+  toid varchar(36) NOT NULL,
+  totype enum('user','group') NOT NULL
+);
+
+CREATE TABLE invite (
+  userid varchar(36) NOT NULL,
+  inviteto varchar(36) NOT NULL,
+  invitetype enum('user','group') DEFAULT NULL
+);
