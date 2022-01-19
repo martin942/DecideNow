@@ -54,3 +54,27 @@ CREATE TABLE invite (
   inviteto varchar(36) NOT NULL,
   invitetype enum('user','group') DEFAULT NULL
 );
+
+CREATE TABLE poll (
+  pollid varchar(36) NOT NULL,
+  userid varchar(36) DEFAULT NULL,
+  PRIMARY KEY (pollid),
+  KEY userid (userid),
+  CONSTRAINT poll_ibfk_1 FOREIGN KEY (userid) REFERENCES user (userid)
+);
+
+CREATE TABLE polldata (
+  pollid varchar(36) DEFAULT NULL,
+  dataindex tinyint(4) DEFAULT NULL,
+  data longblob,
+  KEY pollid (pollid),
+  CONSTRAINT polldata_ibfk_1 FOREIGN KEY (pollid) REFERENCES poll (pollid)
+);
+
+CREATE TABLE pollsetting (
+  pollid varchar(36) DEFAULT NULL,
+  setting varchar(50) DEFAULT NULL,
+  value varchar(50) DEFAULT NULL,
+  KEY pollid (pollid),
+  CONSTRAINT pollsetting_ibfk_1 FOREIGN KEY (pollid) REFERENCES poll (pollid)
+);
