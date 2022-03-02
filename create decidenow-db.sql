@@ -67,6 +67,7 @@ CREATE TABLE polldata (
   pollid varchar(36) DEFAULT NULL,
   dataindex tinyint(4) DEFAULT NULL,
   data longblob,
+  size int default 0,
   KEY pollid (pollid),
   CONSTRAINT polldata_ibfk_1 FOREIGN KEY (pollid) REFERENCES poll (pollid)
 );
@@ -77,4 +78,10 @@ CREATE TABLE pollsetting (
   value varchar(50) DEFAULT NULL,
   KEY pollid (pollid),
   CONSTRAINT pollsetting_ibfk_1 FOREIGN KEY (pollid) REFERENCES poll (pollid)
+);
+
+create table profileimage(
+	userid varchar(36) not null,
+    image longblob,
+    size int default 0
 );
