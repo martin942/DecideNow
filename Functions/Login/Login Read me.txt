@@ -4,12 +4,17 @@ Login
 Urls:
   GET:
     https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?(username or email)=<username or email>
+    liefert zurück ein CHallenge (32byte langes string). Es wird von der App mit SHA256 von Hash von dem gehashtem Passwort erstellt. Das selbe geschiet auf dem     Server. Wenn die ergäbnisse gleich sind, wurde das richtige Passwort eingegeben.   
   
   POST:
     https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?(username or email)=<username or email>&challenge=<challenge>
     BODY:
        <solved challege>
+    
+    liefert zurück ein Token, das später für jeden Request benutzt wird. Zu einem Token wird auch eine IP-Adresse gespeichert.
+    
        
   DELETE (log out):
     https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?token=<token>
+    
     
