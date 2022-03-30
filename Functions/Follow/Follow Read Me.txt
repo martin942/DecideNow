@@ -1,2 +1,74 @@
 Follow
 ------
+
+  Urls:   
+    GET:
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow/followingcount?token=<token>&username=<username>
+      wie viele benutzer jemand folgt
+
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow/followerscount?token=<token>&username=<username>
+      wie viele benutzer jemandem folgen 
+
+      on Succsess:
+        {
+          "message": "<count>",
+          "statusCode":200
+        }
+
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow/following?token=<token>&username=<username>
+      Liste aller Benutzer die jemand folgt
+
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow/followers?token=<token>&username=<username>
+      Liste aller Benutzer die von jemandem gefolgt werden
+
+      on Succsess:
+        {
+          "message": [<username>,<username>,...],
+          "statusCode":200
+        }
+
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow/myinfo?token=<token>
+      Benutzername von einem Token
+
+       on Succsess:
+        {
+          "message": <username>,
+          "statusCode":200
+        }
+
+       on Error:
+        {
+          "massage":<message>,
+          "statusCode":<statusCode>
+        }
+      
+    POST:
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow?token=<token>&follow=<username>
+      
+      on Succsess:
+        {
+          "message": 'follow successfull',
+          "statusCode":200
+        }
+
+       on Error:
+        {
+          "massage":<message>,
+          "statusCode":<statusCode>
+        }
+    DELETE:
+      https://europe-west1-decidenow-344308.cloudfunctions.net/follow?token=<token>&unfollow=<username>
+      
+      on Succsess:
+        {
+          "message": 'unfollow successfull',
+          "statusCode":200
+        }
+
+       on Error:
+        {
+          "massage":<message>,
+          "statusCode":<statusCode>
+        }
+    
+      
