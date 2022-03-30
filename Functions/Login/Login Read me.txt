@@ -3,11 +3,11 @@ Login
 
 Urls:
   GET:
-    https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?(username or email)=<username or email>
+    https://europe-west1-decidenow-344308.cloudfunctions.net/login?(username or email)=<username or email>
     liefert zurück ein CHallenge (32byte langes string). Es wird von der App mit SHA256 von Hash von dem gehashtem Passwort erstellt. Das selbe geschiet auf dem     Server. Wenn die ergäbnisse gleich sind, wurde das richtige Passwort eingegeben.   
   
   POST:
-    https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?(username or email)=<username or email>&challenge=<challenge>
+    https://europe-west1-decidenow-344308.cloudfunctions.net/login?(username or email)=<username or email>&challenge=<challenge>
     BODY:
        <solved challege>
     
@@ -15,6 +15,11 @@ Urls:
     
        
   DELETE (log out):
-    https://europe-west1-apidecidenow-335112.cloudfunctions.net/Login?token=<token>
+    https://europe-west1-decidenow-344308.cloudfunctions.net/login?token=<token>
     
-    
+  on Error:
+  
+  {
+      "message":<massage>,
+      "statusCode":<statusCode>
+  }
