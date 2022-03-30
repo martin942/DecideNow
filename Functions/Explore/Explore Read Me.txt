@@ -1,2 +1,17 @@
 Explore
 --------
+
+Urls:
+   GET:
+      https://europe-west1-decidenow-344308.cloudfunctions.net/explore/search?searchValue=<searchValue>
+      
+      on Succsess:
+        Liste von benutzernamen die durch das zuchwort gefunden wurden
+        [<username>,<username>,...]
+        
+      on Error:
+      {
+        "message":<message>,
+        "statusCode":<statusCode>
+      }
+      
