@@ -85,3 +85,20 @@ create table profileimage(
     image longblob,
     size int default 0
 );
+
+create table code(
+  userid varchar(36) not null,
+  code varchar(6) not null,
+  guesses int default 0,
+  timestamp bigint(20),
+  KEY userid (userid),
+  CONSTRAINT code_ibfk_1 FOREIGN KEY (userid) REFERENCES user (userid)
+);
+
+create table securitytoken(
+  userid varchar(36) not null,
+  token varchar(36) not null,
+  timestamp bigint(20),
+  KEY userid (userid),
+  CONSTRAINT securitytoken_ibfk_1 FOREIGN KEY (userid) REFERENCES user (userid)
+);
