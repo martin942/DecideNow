@@ -2,4 +2,17 @@ Group
 -------
 
 Create Group
+
+POST:
+  https://europe-west1-decidenow-344308.cloudfunctions.net/group/create
+  BODY:
+    {
+      "admin":
+      "visibility":
+      "name":
+    }
+
+DELETE:
+  https://europe-west1-decidenow-344308.cloudfunctions.net/group?token=<>&groupid=<>
+  
 Delete Group
