@@ -43,7 +43,18 @@ namespace Group
         //return userid
         public async Task<string> ValidateToken(string token)
         {
-            return "";
+            string validateTokenCommandString = $"select userid from token where tokenid = '{token}' and clientip = '{ip}'";
+            string user = "";
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand validateTokenCommand = conn.CreateCommand();
+                validateTokenCommand.CommandText = validateTokenCommandString;
+                user = (string)await validateTokenCommand.ExecuteScalarAsync();
+                await conn.CloseAsync();
+            }
+            return user;
         }
 
 
